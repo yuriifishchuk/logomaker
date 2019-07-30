@@ -1,0 +1,35 @@
+<div class="text-box">Edit your logo</div>
+<div class="flex">
+  <div class="edit-box">
+    <mat-card class="logotype">
+      <app-logo #logo logo="{{id}}"></app-logo>
+    </mat-card>
+
+    <mat-card>
+      <div class="edit-buttons">
+        <mat-form-field class="input">
+          <input matInput placeholder="Change text" (change)="drawText(logo, $event.target.value)">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Select a figure</mat-label>
+          <mat-select (selectionChange)="changeLogo(logo, $event.value)">
+            <mat-option value="square">Square</mat-option>
+            <mat-option value="circle">Circle</mat-option>
+            <mat-option value="triangle">Triangle</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Select a font</mat-label>
+          <mat-select (selectionChange)="changeFont(logo, $event.value)">
+            <mat-option *ngFor="let font of fontList" value="{{font.family}}">{{font.family}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="action-btns">
+    <button mat-raised-button (click)="onClick()">Back</button>
+    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+  </div>
+</div>

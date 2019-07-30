@@ -1,0 +1,7 @@
+<div class="text-box">Choose your logo</div>
+<div class="flex">
+  <mat-card *ngFor="let logotype of logos" class="logo-box">
+    <app-logo logo="{{logotype.id}}" (click)="onClick(logotype.id)" class="logo"></app-logo>
+  </mat-card>
+</div>
+
